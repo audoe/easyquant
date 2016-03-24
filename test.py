@@ -1,6 +1,7 @@
 import easyquotation
 
 import easyquant
+import easytrader
 from easyquant import DefaultQuotationEngine, DefaultLogHandler, PushBaseEngine
 
 print('easyquant 测试 DEMO')
@@ -49,11 +50,11 @@ log_filepath = input('请输入 log 文件记录路径\n: ') if log_type == 'fil
 
 log_handler = DefaultLogHandler(name='测试', log_type=log_type, filepath=log_filepath)
 
-remove_zore = 1
+remove_zero = 1
 if broker == 'ht':
-    remove_zore = input('华泰有些08开头的帐号需要去掉0才能使用，请输入 是否去掉0: 1: 去掉 2: 不去掉\n: ')
+    remove_zero = input('华泰有些08开头的帐号需要去掉0才能使用，请输入 是否去掉0: 1: 去掉 2: 不去掉\n: ')
 
-user = easytrader.use(broker, remove_zore=remove_zore == 1)
+user = easytrader.use(broker, remove_zero=remove_zero == 1)
 user.prepare(need_data)
 
 m = easyquant.MainEngine(user, quotation_engines=[quotation_engine], log_handler=log_handler)
