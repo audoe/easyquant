@@ -3,7 +3,7 @@
 
 class StrategyTemplate:
     name = 'DefaultStrategyTemplate'
-
+    allow_types = ['quotation']
     def __init__(self, user, log_handler):
         self.user = user
         custom_log_handler = self.log_handler()
